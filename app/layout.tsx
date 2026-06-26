@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Chamyworks",
   description:
     "Chamyworks is a heartfelt studio adding happiness to everyday life through small ideas.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export const viewport: Viewport = {

@@ -21,7 +21,7 @@ export type ChamyworksApp = {
 
 export const chamyworksApps: ChamyworksApp[] = [
   {
-    slug: "happy-pick",
+    slug: "happypick",
     name: "Happy Pick",
     policy: {
       title: "Happy Pick 개인정보처리방침",

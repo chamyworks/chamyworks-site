@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const siteDescription =
+  "작은 아이디어에 진심을 담아, 일상에 행복을 더하는 작업실";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://chamyworks.com"),
   title: "Chamyworks",
-  description:
-    "Chamyworks is a heartfelt studio adding happiness to everyday life through small ideas.",
+  description: siteDescription,
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",
   },
   openGraph: {
     title: "Chamyworks",
-    description:
-      "Chamyworks is a heartfelt studio adding happiness to everyday life through small ideas.",
+    description: siteDescription,
     url: "https://chamyworks.com",
     siteName: "Chamyworks",
     images: [
@@ -29,8 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Chamyworks",
-    description:
-      "Chamyworks is a heartfelt studio adding happiness to everyday life through small ideas.",
+    description: siteDescription,
     images: ["/og-image.png"],
   },
 };

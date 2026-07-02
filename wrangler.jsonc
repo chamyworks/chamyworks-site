@@ -8,6 +8,16 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "routes": [
+    {
+      "pattern": "chamyworks.com/*",
+      "zone_name": "chamyworks.com"
+    },
+    {
+      "pattern": "www.chamyworks.com/*",
+      "zone_name": "chamyworks.com"
+    }
+  ],
   "observability": {
     "enabled": true
   }

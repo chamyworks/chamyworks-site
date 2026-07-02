@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { AboutSection } from "@/components/about-section";
+import { AppsSection } from "@/components/apps-section";
 import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-5xl items-center justify-center px-6 py-12 sm:px-10">
       <div className="flex w-full flex-col items-center">
-        <div className="flex w-full max-w-[34rem] -translate-y-6 flex-col items-center text-center sm:-translate-y-7">
+        <div className="flex w-full max-w-[34rem] flex-col items-center text-center">
           <header className="flex justify-center">
             <Image
               src="/chamyworks-logo.png"
@@ -21,6 +22,10 @@ export default function Home() {
 
           <div className="mt-8 sm:mt-10">
             <AboutSection />
+          </div>
+
+          <div className="mt-12 w-full sm:mt-14">
+            <AppsSection />
           </div>
 
           <SiteFooter />

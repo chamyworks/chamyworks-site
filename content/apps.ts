@@ -6,6 +6,14 @@ export type PolicySection = {
 export type ChamyworksApp = {
   slug: string;
   name: string;
+  summary: string;
+  icon: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+  appStoreUrl: string;
   policy: {
     title: string;
     updatedAt: string;
@@ -23,6 +31,14 @@ export const chamyworksApps: ChamyworksApp[] = [
   {
     slug: "happypick",
     name: "Happy Pick",
+    summary: "작은 행복을 발견하고 모으는 앱",
+    icon: {
+      src: "/apps/happypick/icon.png",
+      alt: "Happy Pick app icon",
+      width: 1254,
+      height: 1254,
+    },
+    appStoreUrl: "",
     policy: {
       title: "Happy Pick 개인정보처리방침",
       updatedAt: "2026년 6월 26일",

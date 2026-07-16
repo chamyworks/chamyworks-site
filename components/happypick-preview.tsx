@@ -37,7 +37,7 @@ export function HappyPickPreview({
 
   return (
     <section aria-label="Happy Pick 앱 화면" className="pb-9 sm:pb-12">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,0.86fr)_minmax(20rem,0.82fr)] lg:items-start lg:gap-10">
+      <div className="grid justify-center gap-7 lg:grid-cols-[19.5rem_minmax(21rem,24rem)] lg:items-start lg:gap-8 xl:gap-10">
         <div className="mx-auto w-full max-w-[17rem] sm:max-w-[18.5rem] lg:max-w-[19.5rem]">
           <figure>
             <Image
@@ -87,9 +87,9 @@ export function HappyPickPreview({
           </div>
         </div>
 
-        <div className="mx-auto flex max-w-[30rem] flex-col text-left lg:mx-0">
+        <div className="mx-auto flex max-w-[28rem] flex-col text-left lg:mx-0 lg:max-w-none lg:pt-1">
           <div>
-            <div className="space-y-3 text-[0.95rem] leading-7 text-warm-muted sm:text-base sm:leading-8 dark:text-[#d9cabb]">
+            <div className="space-y-2.5 text-[0.95rem] leading-[1.75] text-warm-muted sm:text-base sm:leading-[1.85] dark:text-[#d9cabb]">
               <p>
                 해피픽은 하루의 좋은 순간을
                 <br />
@@ -110,24 +110,60 @@ export function HappyPickPreview({
               </p>
             </div>
 
-            <ul className="mx-auto mt-4 grid max-w-[18.5rem] gap-2 text-left text-[0.94rem] font-medium text-warm-ink sm:mx-0 sm:max-w-none sm:grid-cols-2 sm:text-[0.95rem] lg:grid-cols-1 dark:text-[#f8efe4]">
+            <ul className="mx-auto mt-7 grid max-w-[18.5rem] gap-2.5 border-t border-warm-muted/12 pt-5 text-left text-[0.94rem] font-medium text-warm-ink sm:mx-0 sm:max-w-none sm:grid-cols-2 sm:text-[0.95rem] lg:grid-cols-1 dark:border-[#bda995]/16 dark:text-[#f8efe4]">
               {features.map((feature) => (
-                <li key={feature.title} className="flex items-center gap-2">
-                  <span aria-hidden="true">{feature.icon}</span>
+                <li key={feature.title} className="flex items-center gap-2.5">
+                  <span aria-hidden="true" className="w-5 shrink-0 text-center">
+                    {feature.icon}
+                  </span>
                   <span>{feature.title}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="mt-5 flex justify-center sm:justify-start">
+          <div className="mt-5 flex justify-center lg:justify-start">
             {appStoreUrl ? (
-              <a
-                href={appStoreUrl}
-                className="inline-flex h-11 min-w-36 items-center justify-center rounded-full bg-warm-ink px-5 text-sm font-semibold text-warm-paper shadow-[0_12px_28px_rgba(50,37,29,0.14)] transition hover:-translate-y-0.5 hover:bg-warm-ink/90 dark:bg-[#f8efe4] dark:text-[#17120f]"
-              >
-                App Store
-              </a>
+              <div className="flex items-start gap-[0.5625rem]">
+                <a
+                  href={appStoreUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="App Store에서 Happy Pick 다운로드"
+                  className="inline-flex"
+                >
+                  <Image
+                    src="/apps/happypick/app-store-badge-ko.svg"
+                    alt="App Store에서 다운로드"
+                    width={130}
+                    height={40}
+                    unoptimized
+                    className="block h-10 w-auto"
+                  />
+                </a>
+
+                <div className="hidden flex-col items-center lg:flex">
+                  <a
+                    href={appStoreUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Happy Pick App Store 제품 페이지 열기"
+                    className="bg-white p-2"
+                  >
+                    <Image
+                      src="/apps/happypick/app-store-qr.png"
+                      alt="Happy Pick App Store 다운로드 QR 코드"
+                      width={400}
+                      height={400}
+                      unoptimized
+                      className="block h-[4.5rem] w-[4.5rem]"
+                    />
+                  </a>
+                  <p className="mt-1.5 text-center text-[0.64rem] leading-4 text-warm-muted/75 dark:text-[#cdbdac]/75">
+                    휴대폰으로 스캔
+                  </p>
+                </div>
+              </div>
             ) : (
               <span className="inline-flex h-11 min-w-36 items-center justify-center rounded-full border border-warm-muted/20 bg-white/42 px-5 text-sm font-semibold text-warm-muted shadow-[0_10px_24px_rgba(50,37,29,0.07)] dark:border-[#bda995]/20 dark:bg-[#2a211a]/60 dark:text-[#cdbdac]">
                 Coming Soon

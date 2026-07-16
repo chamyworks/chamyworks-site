@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HappyPickPreview } from "@/components/happypick-preview";
+import { SubpageHeader } from "@/components/subpage-header";
 import { chamyworksApps, getChamyworksApp } from "@/content/apps";
 
 type AppPageProps = {
@@ -10,6 +11,8 @@ type AppPageProps = {
     appSlug: string;
   }>;
 };
+
+export const dynamic = "force-dynamic";
 
 const happyPick = {
   screenshots: [
@@ -108,39 +111,32 @@ export default async function AppPage({ params }: AppPageProps) {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden px-5 py-6 text-warm-ink sm:px-8 sm:py-10 dark:text-[#f8efe4]">
+    <main className="min-h-screen overflow-hidden px-5 pb-6 text-warm-ink sm:px-8 sm:pb-8 dark:text-[#f8efe4]">
       <div className="mx-auto flex w-full max-w-6xl flex-col">
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-4 flex flex-wrap items-center gap-2 text-xs text-warm-muted/75 sm:mb-8 dark:text-[#bda995]/80"
-        >
-          <Link
-            href="/"
-            className="transition hover:text-warm-ink dark:hover:text-[#f8efe4]"
-          >
-            Chamyworks
-          </Link>
-          <span>/</span>
-          <span>Apps</span>
-          <span>/</span>
-          <span>Happy Pick</span>
-        </nav>
+        <SubpageHeader showAppsMenu={false} />
 
-        <section className="flex min-h-[13.5rem] flex-col items-center justify-center pb-5 pt-1 text-center sm:min-h-[18rem] sm:pb-7 lg:min-h-[19rem]">
+        <Link
+          href="/apps/"
+          className="mt-4 w-fit text-xs font-semibold text-[#6b5448] transition hover:text-warm-ink sm:mt-5 sm:text-sm dark:text-[#d9cabb] dark:hover:text-[#f8efe4]"
+        >
+          ← Apps
+        </Link>
+
+        <section className="flex min-h-[8.25rem] flex-col items-center justify-center pb-3 text-center sm:min-h-[11.5rem] sm:pb-4">
           <Image
             src={app.icon.src}
             alt={app.icon.alt}
             width={app.icon.width}
             height={app.icon.height}
             priority
-            className="h-16 w-16 rounded-[1.1rem] shadow-[0_16px_36px_rgba(205,155,35,0.2)] sm:h-24 sm:w-24 sm:rounded-[1.55rem]"
-            sizes="(min-width: 640px) 96px, 64px"
+            className="h-[3.25rem] w-[3.25rem] rounded-[0.9rem] shadow-[0_14px_30px_rgba(205,155,35,0.18)] sm:h-20 sm:w-20 sm:rounded-[1.3rem]"
+            sizes="(min-width: 640px) 80px, 52px"
           />
 
-          <h1 className="mt-3 text-[2rem] font-semibold leading-none tracking-normal sm:mt-5 sm:text-5xl">
+          <h1 className="mt-3 text-[1.8rem] font-semibold leading-none tracking-normal sm:mt-4 sm:text-[2.625rem]">
             Happy Pick
           </h1>
-          <p className="mt-3 text-[0.94rem] font-medium leading-6 text-warm-ink/90 sm:text-xl sm:leading-8 dark:text-[#f8efe4]/95">
+          <p className="mt-2 text-[0.9rem] font-medium leading-6 text-warm-ink/90 sm:text-lg sm:leading-7 dark:text-[#f8efe4]/95">
             작은 행복 하나가 오늘을 행복하게 만들어 줍니다.
           </p>
         </section>
@@ -151,25 +147,21 @@ export default async function AppPage({ params }: AppPageProps) {
           slides={happyPick.screenshots}
         />
 
-        <section className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 border-t border-warm-muted/12 pb-6 pt-5 text-center sm:pb-7 dark:border-[#bda995]/16">
-          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm">
-            <span className="font-semibold text-warm-ink dark:text-[#f8efe4]">
-              ✉ Contact :
-            </span>
-            <a
-              href={`mailto:${app.policy.contact.email}`}
-              className="font-medium text-warm-muted underline decoration-warm-muted/30 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:text-[#d9cabb] dark:decoration-[#bda995]/40 dark:hover:text-[#f8efe4] dark:hover:decoration-[#f8efe4]"
-            >
-              {app.policy.contact.email}
-            </a>
-          </div>
+        <footer className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-center gap-x-2 gap-y-1 border-t border-warm-muted/10 pb-5 pt-4 text-center text-xs text-warm-muted/85 sm:pb-6 dark:border-[#bda995]/14 dark:text-[#d9cabb]/85">
+          <a
+            href={`mailto:${app.policy.contact.email}`}
+            className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4] dark:hover:decoration-[#f8efe4]"
+          >
+            {app.policy.contact.email}
+          </a>
+          <span aria-hidden="true">·</span>
           <Link
             href={`/apps/${app.slug}/privacy`}
-            className="text-xs font-medium text-warm-muted/85 underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:text-[#d9cabb]/85 dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4] dark:hover:decoration-[#f8efe4]"
+            className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4] dark:hover:decoration-[#f8efe4]"
           >
             개인정보처리방침
           </Link>
-        </section>
+        </footer>
       </div>
     </main>
   );

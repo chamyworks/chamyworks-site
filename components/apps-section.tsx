@@ -22,7 +22,7 @@ export function AppsSection() {
 
       <div className="grid gap-4">
         {chamyworksApps.map((app) => (
-          <AppCard key={app.slug} app={app} />
+          <AppCard key={app.slug} app={app} variant="home" />
         ))}
       </div>
     </section>

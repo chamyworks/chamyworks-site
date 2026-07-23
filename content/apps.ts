@@ -1,3 +1,5 @@
+import { happyPickPolicyEn } from "@/content/happypick-policy-en";
+
 export type PolicyBlock =
   | {
       type: "paragraph";
@@ -15,6 +17,20 @@ export type PolicySection = {
   blocks?: PolicyBlock[];
 };
 
+export type PrivacyPolicy = {
+  title: string;
+  titleEn?: string;
+  updatedAt: string;
+  updatedLabel?: string;
+  description: string;
+  intro: string[];
+  sections: PolicySection[];
+  contact: {
+    name: string;
+    email: string;
+  };
+};
+
 export type ChamyworksApp = {
   slug: string;
   name: string;
@@ -27,19 +43,8 @@ export type ChamyworksApp = {
     height: number;
   };
   appStoreUrl: string;
-  policy: {
-    title: string;
-    titleEn?: string;
-    updatedAt: string;
-    updatedLabel?: string;
-    description: string;
-    intro: string[];
-    sections: PolicySection[];
-    contact: {
-      name: string;
-      email: string;
-    };
-  };
+  policy: PrivacyPolicy;
+  policyEn?: PrivacyPolicy;
 };
 
 const allChamyworksApps: ChamyworksApp[] = [
@@ -99,6 +104,7 @@ const allChamyworksApps: ChamyworksApp[] = [
           paragraphs: [
             "해피픽은 회원가입, 로그인, 서버 저장 기능을 제공하지 않습니다.",
             "사용자가 작성한 행복 기록과 관련 데이터는 이용자의 기기 내부에 저장됩니다.",
+            "기기 백업 기능 사용 여부 및 백업 방식은 이용자의 운영체제 설정에 따라 달라질 수 있습니다.",
             "개발자는 이용자의 행복 기록 내용을 별도로 수집하거나 서버에 저장하지 않습니다.",
           ],
         },
@@ -153,7 +159,15 @@ const allChamyworksApps: ChamyworksApp[] = [
           blocks: [
             {
               type: "paragraph",
-              text: "현재 해피픽은 다음 서비스를 사용하지 않습니다.",
+              text: "해피픽 iOS 1.2 및 Android 1.0 이상에서는 Pretendard와 MaruBuri 글꼴 파일을 앱에 포함하여 앱 내부에서 불러옵니다. 따라서 해당 버전에서는 글꼴 표시를 위해 외부 폰트 제공자에게 네트워크 접속 정보가 전송되지 않습니다.",
+            },
+            {
+              type: "paragraph",
+              text: "이전 iOS 버전에서는 jsDelivr(Pretendard)와 네이버 글꼴(MaruBuri)의 외부 폰트 리소스를 사용할 수 있습니다. 이 과정에서 IP 주소 등 일반적인 네트워크 접속 정보가 각 제공자의 정책에 따라 처리될 수 있으나, 사용자가 작성한 행복 기록, 태그, 설정 정보 등 앱 내부 데이터는 전송되지 않습니다.",
+            },
+            {
+              type: "paragraph",
+              text: "그 외 현재 해피픽은 다음 서비스를 사용하지 않습니다.",
             },
             {
               type: "list",
@@ -200,6 +214,7 @@ const allChamyworksApps: ChamyworksApp[] = [
         email: "help@chamyworks.com",
       },
     },
+    policyEn: happyPickPolicyEn,
   },
   {
     slug: "daengpick",

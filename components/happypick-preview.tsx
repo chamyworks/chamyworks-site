@@ -159,9 +159,6 @@ export function HappyPickPreview({
                       className="block h-[4.5rem] w-[4.5rem]"
                     />
                   </a>
-                  <p className="mt-1.5 text-center text-[0.64rem] leading-4 text-warm-muted/75 dark:text-[#cdbdac]/75">
-                    휴대폰으로 스캔
-                  </p>
                 </div>
               </div>
             ) : (

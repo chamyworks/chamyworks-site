@@ -122,7 +122,7 @@ export default async function AppPage({ params }: AppPageProps) {
           ← Apps
         </Link>
 
-        <section className="flex min-h-[8.25rem] flex-col items-center justify-center pb-3 text-center sm:min-h-[11.5rem] sm:pb-4">
+        <section className="flex min-h-[8.25rem] flex-col items-center justify-center pb-[1.875rem] text-center sm:min-h-[11.5rem] sm:pb-10">
           <Image
             src={app.icon.src}
             alt={app.icon.alt}

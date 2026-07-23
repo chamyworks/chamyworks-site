@@ -18,7 +18,7 @@ export function AppCard({
       href={`/apps/${app.slug}/`}
       className={`group block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6b5448]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbf7f1] ${className}`}
     >
-      <article className="flex items-center gap-3.5 rounded-lg border border-[#e8ded5] bg-[#fffaf5] p-3.5 text-left transition-colors group-hover:border-[#d9c9bd] group-hover:bg-[#fffdf9] sm:gap-4 sm:p-4 dark:border-[#bda995]/18 dark:bg-[#261d17]/58 dark:group-hover:border-[#bda995]/28 dark:group-hover:bg-[#2d221b]/64">
+      <article className="flex items-center gap-3.5 rounded-lg border border-[#e8ded5] bg-[#fffaf5] p-3.5 text-left transition-colors group-hover:border-[#d9c9bd] group-hover:bg-[#fffdf9] sm:gap-4 sm:p-4 dark:border-[#4c3c33] dark:bg-[#241c17] dark:group-hover:border-[#6f5a4d] dark:group-hover:bg-[#2a211b]">
         <Image
           src={app.icon.src}
           alt={app.icon.alt}

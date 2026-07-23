@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "../globals.css";
 
 const siteDescription =
   "작은 아이디어에 진심을 담아, 일상에 행복을 더하는 작업실";

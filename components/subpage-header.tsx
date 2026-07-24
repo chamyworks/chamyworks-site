@@ -3,6 +3,7 @@ import Link from "next/link";
 
 type SubpageHeaderProps = {
   active?: "apps";
+  language?: "ko" | "en";
   showAppsMenu?: boolean;
 };
 
@@ -10,14 +11,17 @@ const menus = [{ href: "/apps/", label: "Apps", value: "apps" }] as const;
 
 export function SubpageHeader({
   active,
+  language = "ko",
   showAppsMenu = true,
 }: SubpageHeaderProps) {
+  const isEnglish = language === "en";
+
   return (
     <header className="border-b border-[#e8ded5] dark:border-[#bda995]/16">
       <div className="flex h-14 items-center justify-between sm:h-16">
         <Link
           href="/"
-          aria-label="Chamyworks 홈으로 이동"
+          aria-label={isEnglish ? "Go to Chamyworks home" : "Chamyworks 홈으로 이동"}
           className="inline-flex items-center"
         >
           <Image
@@ -31,7 +35,10 @@ export function SubpageHeader({
         </Link>
 
         {showAppsMenu ? (
-          <nav aria-label="주요 메뉴" className="flex items-center gap-5 sm:gap-6">
+          <nav
+            aria-label={isEnglish ? "Main navigation" : "주요 메뉴"}
+            className="flex items-center gap-5 sm:gap-6"
+          >
             {menus.map((menu) => {
               const isActive = active === menu.value;
 

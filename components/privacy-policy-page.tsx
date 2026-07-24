@@ -48,7 +48,7 @@ export function PrivacyPolicyPage({
   return (
     <main className="min-h-screen px-5 pb-7 text-warm-ink sm:px-10 sm:pb-11 dark:text-[#f8efe4]">
       <div className="mx-auto max-w-6xl">
-        <SubpageHeader active="apps" />
+        <SubpageHeader active="apps" language={language} />
       </div>
 
       <article className="mx-auto max-w-3xl">

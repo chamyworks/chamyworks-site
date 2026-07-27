@@ -126,20 +126,30 @@ export const happyPickPolicyEn: PrivacyPolicy = {
       ],
     },
     {
-      title: "7. Data Protection",
+      title: "7. Email Support",
+      paragraphs: [
+        "The Contact support feature available in Happy Pick for iOS 1.2 and Android 1.0 or later opens an external email app selected by the user.",
+        "When a user sends an email, the sender’s email address and display name, message content, app version and build number, operating system and version, and app language may be provided to the Developer for handling the inquiry, responding to the user, and troubleshooting.",
+        "Happy moment entries, hashtags, backup files, the user name configured in the App, and device identifiers are not automatically attached to support emails.",
+        "Users may review, edit, or remove any prefilled information before sending the email. Users can continue to use all other App features without contacting support.",
+        "Information related to an inquiry is retained only as long as necessary to handle the inquiry and review related correspondence, and is deleted within one year from the date the inquiry is received, unless a longer retention period is required by applicable law.",
+      ],
+    },
+    {
+      title: "8. Data Protection",
       paragraphs: [
         "The Developer complies with applicable laws and regulations and continuously applies reasonable safeguards to protect users’ personal information.",
       ],
     },
     {
-      title: "8. Changes to This Privacy Policy",
+      title: "9. Changes to This Privacy Policy",
       paragraphs: [
         "This Privacy Policy may be revised due to changes in applicable laws or the service.",
         "Material changes will be announced through the App or the website.",
       ],
     },
     {
-      title: "9. Contact",
+      title: "10. Contact",
       paragraphs: [
         "Service: Happy Pick",
         "Developer: Chamyworks",

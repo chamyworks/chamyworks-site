@@ -70,8 +70,8 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "header",
-            key: "x-forwarded-proto",
-            value: "http",
+            key: "cf-visitor",
+            value: ".*\"scheme\":\"http\".*",
           },
         ],
         destination: "https://chamyworks.com/:path*",

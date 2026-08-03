@@ -1,5 +1,5 @@
 import { notFound, permanentRedirect } from "next/navigation";
-import { getChamyworksApp } from "@/content/apps";
+import { getChamyworksPrivacyApp } from "@/content/apps";
 
 type LegacyPrivacyPolicyPageProps = {
   params: Promise<{
@@ -15,7 +15,7 @@ export default async function LegacyPrivacyPolicyPage({
   params,
 }: LegacyPrivacyPolicyPageProps) {
   const { appSlug } = await params;
-  const app = getChamyworksApp(legacySlugs[appSlug] ?? appSlug);
+  const app = getChamyworksPrivacyApp(legacySlugs[appSlug] ?? appSlug);
 
   if (!app) {
     notFound();

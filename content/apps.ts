@@ -457,6 +457,12 @@ export const chamyworksApps: ChamyworksApp[] = allChamyworksApps.filter(
   (app) => app.slug !== "daengpick",
 );
 
+export const chamyworksPrivacyApps: ChamyworksApp[] = allChamyworksApps;
+
 export function getChamyworksApp(slug: string) {
   return chamyworksApps.find((app) => app.slug === slug);
+}
+
+export function getChamyworksPrivacyApp(slug: string) {
+  return chamyworksPrivacyApps.find((app) => app.slug === slug);
 }

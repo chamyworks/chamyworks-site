@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PrivacyPolicyPage } from "@/components/privacy-policy-page";
-import { chamyworksApps, getChamyworksApp } from "@/content/apps";
+import {
+  chamyworksPrivacyApps,
+  getChamyworksPrivacyApp,
+} from "@/content/apps";
 
 type PrivacyPageProps = {
   params: Promise<{
@@ -12,7 +15,7 @@ type PrivacyPageProps = {
 export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
-  return chamyworksApps.map((app) => ({
+  return chamyworksPrivacyApps.map((app) => ({
     appSlug: app.slug,
   }));
 }
@@ -21,7 +24,7 @@ export async function generateMetadata({
   params,
 }: PrivacyPageProps): Promise<Metadata> {
   const { appSlug } = await params;
-  const app = getChamyworksApp(appSlug);
+  const app = getChamyworksPrivacyApp(appSlug);
 
   if (!app) {
     return {
@@ -58,7 +61,7 @@ export async function generateMetadata({
 
 export default async function PrivacyPage({ params }: PrivacyPageProps) {
   const { appSlug } = await params;
-  const app = getChamyworksApp(appSlug);
+  const app = getChamyworksPrivacyApp(appSlug);
 
   if (!app) {
     notFound();

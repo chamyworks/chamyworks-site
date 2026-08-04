@@ -44,6 +44,7 @@ export function PrivacyPolicyPage({
   const alternateHref = isEnglish
     ? `/apps/${app.slug}/privacy`
     : `/apps/${app.slug}/privacy/en`;
+  const hasAlternatePolicy = Boolean(app.policyEn);
 
   return (
     <main className="min-h-screen px-5 pb-7 text-warm-ink sm:px-10 sm:pb-11 dark:text-[#f8efe4]">
@@ -86,13 +87,15 @@ export function PrivacyPolicyPage({
               {policy.updatedLabel ?? (isEnglish ? "Last updated" : "최종 수정일")}:{" "}
               {policy.updatedAt}
             </p>
-            <Link
-              href={alternateHref}
-              hrefLang={isEnglish ? "ko" : "en"}
-              className="font-medium text-warm-ink underline decoration-warm-muted/30 underline-offset-4 transition hover:decoration-warm-ink dark:text-[#f8efe4] dark:decoration-[#bda995]/40 dark:hover:decoration-[#f8efe4]"
-            >
-              {isEnglish ? "한국어" : "English"}
-            </Link>
+            {hasAlternatePolicy ? (
+              <Link
+                href={alternateHref}
+                hrefLang={isEnglish ? "ko" : "en"}
+                className="font-medium text-warm-ink underline decoration-warm-muted/30 underline-offset-4 transition hover:decoration-warm-ink dark:text-[#f8efe4] dark:decoration-[#bda995]/40 dark:hover:decoration-[#f8efe4]"
+              >
+                {isEnglish ? "한국어" : "English"}
+              </Link>
+            ) : null}
           </div>
         </header>
 
@@ -149,16 +152,18 @@ export function PrivacyPolicyPage({
           ))}
         </div>
 
-        <footer className="mt-10 border-t border-warm-muted/14 pt-5 text-xs text-warm-muted/80 dark:border-[#bda995]/16 dark:text-[#cdbdac]/85">
-          <Link
-            href={`/apps/${app.slug}`}
-            className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4]"
-          >
-            {isEnglish
-              ? `Back to ${app.name}`
-              : `${app.name} 소개로 돌아가기`}
-          </Link>
-        </footer>
+        {app.isPublic ? (
+          <footer className="mt-10 border-t border-warm-muted/14 pt-5 text-xs text-warm-muted/80 dark:border-[#bda995]/16 dark:text-[#cdbdac]/85">
+            <Link
+              href={`/apps/${app.slug}`}
+              className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4]"
+            >
+              {isEnglish
+                ? `Back to ${app.name}`
+                : `${app.name} 소개로 돌아가기`}
+            </Link>
+          </footer>
+        ) : null}
       </article>
     </main>
   );

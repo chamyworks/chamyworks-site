@@ -43,7 +43,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `/apps/${app.slug}/privacy`,
       languages:
-        app.slug === "happypick"
+        app.policyEn
           ? {
               ko: `/apps/${app.slug}/privacy`,
               en: `/apps/${app.slug}/privacy/en`,

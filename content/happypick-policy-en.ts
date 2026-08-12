@@ -2,7 +2,7 @@ import type { PrivacyPolicy } from "@/content/apps";
 
 export const happyPickPolicyEn: PrivacyPolicy = {
   title: "Happy Pick Privacy Policy",
-  updatedAt: "July 2026",
+  updatedAt: "August 13, 2026",
   updatedLabel: "Last updated",
   description:
     "Happy Pick is a journal app for recording small moments of happiness that can be used without creating an account or signing in. Most data is stored and processed only on the user’s device.",
@@ -129,8 +129,8 @@ export const happyPickPolicyEn: PrivacyPolicy = {
       title: "7. Email Support",
       paragraphs: [
         "The Contact support feature available in Happy Pick for iOS 1.2 and Android 1.0 or later opens an external email app selected by the user.",
-        "When a user sends an email, the sender’s email address and display name, message content, app version and build number, operating system and version, and app language may be provided to the Developer for handling the inquiry, responding to the user, and troubleshooting.",
-        "Happy moment entries, hashtags, backup files, the user name configured in the App, and device identifiers are not automatically attached to support emails.",
+        "When a user sends an email, the sender’s email address and display name, message content, app version and build number, operating system and version, and app language may be provided to the Developer for handling the inquiry, responding to the user, and troubleshooting. On Android, the device manufacturer and model may also be included.",
+        "Happy moment entries, hashtags, backup files, the user name configured in the App, advertising identifiers, and unique device identifiers are not automatically attached to support emails.",
         "Users may review, edit, or remove any prefilled information before sending the email. Users can continue to use all other App features without contacting support.",
         "Information related to an inquiry is retained only as long as necessary to handle the inquiry and review related correspondence, and is deleted within one year from the date the inquiry is received, unless a longer retention period is required by applicable law.",
       ],
@@ -146,6 +146,7 @@ export const happyPickPolicyEn: PrivacyPolicy = {
       paragraphs: [
         "This Privacy Policy may be revised due to changes in applicable laws or the service.",
         "Material changes will be announced through the App or the website.",
+        "August 2026: Updated the Email Support section to state that device manufacturer and model information may be included in support emails sent from Android.",
       ],
     },
     {

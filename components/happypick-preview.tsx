@@ -15,12 +15,14 @@ type HappyPickFeature = {
 
 type HappyPickPreviewProps = {
   appStoreUrl: string;
+  googlePlayUrl?: string;
   features: HappyPickFeature[];
   slides: HappyPickSlide[];
 };
 
 export function HappyPickPreview({
   appStoreUrl,
+  googlePlayUrl,
   features,
   slides,
 }: HappyPickPreviewProps) {
@@ -122,49 +124,137 @@ export function HappyPickPreview({
             </ul>
           </div>
 
-          <div className="mt-5 flex justify-center lg:justify-start">
-            {appStoreUrl ? (
-              <div className="flex items-start gap-[0.5625rem]">
-                <a
-                  href={appStoreUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="App Store에서 Happy Pick 다운로드"
-                  className="inline-flex"
-                >
-                  <Image
-                    src="/apps/happypick/app-store-badge-ko.svg"
-                    alt="App Store에서 다운로드"
-                    width={130}
-                    height={40}
-                    unoptimized
-                    className="block h-10 w-auto"
-                  />
-                </a>
+          <div className="mt-7 border-t border-warm-muted/12 pt-5 dark:border-[#bda995]/16">
+            <p className="text-center text-sm font-medium text-warm-muted lg:text-left dark:text-[#d9cabb]">
+              iPhone과 Android에서 만나보세요.
+            </p>
 
-                <div className="hidden flex-col items-center lg:flex">
+            {appStoreUrl ? (
+              <div className="mt-3">
+                <div className="mx-auto grid w-full max-w-[17rem] grid-cols-2 items-center justify-items-center gap-2 lg:hidden">
                   <a
                     href={appStoreUrl}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="Happy Pick App Store 제품 페이지 열기"
-                    className="bg-white p-2"
+                    aria-label="App Store에서 Happy Pick 다운로드"
+                    className="inline-flex h-10 w-[8.125rem] items-center justify-center"
                   >
                     <Image
-                      src="/apps/happypick/app-store-qr.png"
-                      alt="Happy Pick App Store 다운로드 QR 코드"
-                      width={400}
-                      height={400}
+                      src="/apps/happypick/app-store-badge-ko.svg"
+                      alt="App Store에서 다운로드"
+                      width={130}
+                      height={40}
                       unoptimized
-                      className="block h-[4.5rem] w-[4.5rem]"
+                      className="block h-10 w-auto"
                     />
                   </a>
+
+                  {googlePlayUrl ? (
+                    <a
+                      href={googlePlayUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Google Play에서 Happy Pick 다운로드"
+                      className="inline-flex h-10 w-[8.125rem] items-center justify-center"
+                    >
+                      <Image
+                        src="/apps/happypick/google-play-badge-ko.png"
+                        alt="Google Play에서 다운로드"
+                        width={646}
+                        height={250}
+                        unoptimized
+                        className="block h-10 w-auto"
+                      />
+                    </a>
+                  ) : null}
+                </div>
+
+                <div className="hidden items-start gap-5 lg:flex">
+                  <div className="flex min-w-[8.125rem] flex-col items-center">
+                    <a
+                      href={appStoreUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="App Store에서 Happy Pick 다운로드"
+                      className="inline-flex h-10 w-[8.125rem] items-center justify-center"
+                    >
+                      <Image
+                        src="/apps/happypick/app-store-badge-ko.svg"
+                        alt="App Store에서 다운로드"
+                        width={130}
+                        height={40}
+                        unoptimized
+                        className="block h-10 w-auto"
+                      />
+                    </a>
+                    <a
+                      href={appStoreUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="App Store에서 Happy Pick 다운로드"
+                      className="mt-2 bg-white p-2"
+                    >
+                      <Image
+                        src="/apps/happypick/app-store-qr.png"
+                        alt="Happy Pick App Store 다운로드 QR 코드"
+                        width={400}
+                        height={400}
+                        unoptimized
+                        className="block h-[4.5rem] w-[4.5rem]"
+                      />
+                    </a>
+                    <span className="mt-1.5 text-xs font-medium text-warm-muted dark:text-[#cdbdac]">
+                      App Store
+                    </span>
+                  </div>
+
+                  {googlePlayUrl ? (
+                    <div className="flex min-w-[8.125rem] flex-col items-center">
+                      <a
+                        href={googlePlayUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Google Play에서 Happy Pick 다운로드"
+                        className="inline-flex h-10 w-[8.125rem] items-center justify-center"
+                      >
+                        <Image
+                          src="/apps/happypick/google-play-badge-ko.png"
+                          alt="Google Play에서 다운로드"
+                          width={646}
+                          height={250}
+                          unoptimized
+                          className="block h-10 w-auto"
+                        />
+                      </a>
+                      <a
+                        href={googlePlayUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Google Play에서 Happy Pick 다운로드"
+                        className="mt-2 bg-white p-2"
+                      >
+                        <Image
+                          src="/apps/happypick/google-play-qr.png"
+                          alt="Happy Pick Google Play 다운로드 QR 코드"
+                          width={400}
+                          height={400}
+                          unoptimized
+                          className="block h-[4.5rem] w-[4.5rem]"
+                        />
+                      </a>
+                      <span className="mt-1.5 text-xs font-medium text-warm-muted dark:text-[#cdbdac]">
+                        Google Play
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ) : (
-              <span className="inline-flex h-11 min-w-36 items-center justify-center rounded-full border border-warm-muted/20 bg-white/42 px-5 text-sm font-semibold text-warm-muted shadow-[0_10px_24px_rgba(50,37,29,0.07)] dark:border-[#bda995]/20 dark:bg-[#2a211a]/60 dark:text-[#cdbdac]">
-                Coming Soon
-              </span>
+              <div className="mt-3 flex justify-center lg:justify-start">
+                <span className="inline-flex h-11 min-w-36 items-center justify-center rounded-full border border-warm-muted/20 bg-white/42 px-5 text-sm font-semibold text-warm-muted shadow-[0_10px_24px_rgba(50,37,29,0.07)] dark:border-[#bda995]/20 dark:bg-[#2a211a]/60 dark:text-[#cdbdac]">
+                  Coming Soon
+                </span>
+              </div>
             )}
           </div>
         </div>

@@ -143,6 +143,7 @@ export default async function AppPage({ params }: AppPageProps) {
 
         <HappyPickPreview
           appStoreUrl={app.appStoreUrl}
+          googlePlayUrl={app.googlePlayUrl}
           features={happyPick.features}
           slides={happyPick.screenshots}
         />

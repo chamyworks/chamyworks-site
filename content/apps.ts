@@ -9,6 +9,15 @@ export type PolicyBlock =
   | {
       type: "list";
       items: string[];
+    }
+  | {
+      type: "subheading";
+      text: string;
+    }
+  | {
+      type: "link";
+      label: string;
+      href: string;
     };
 
 export type PolicySection = {
@@ -44,6 +53,7 @@ export type ChamyworksApp = {
     height: number;
   };
   appStoreUrl: string;
+  googlePlayUrl?: string;
   isPublic: boolean;
   policy: PrivacyPolicy;
   policyEn?: PrivacyPolicy;
@@ -63,6 +73,8 @@ const allChamyworksApps: ChamyworksApp[] = [
     },
     appStoreUrl:
       "https://apps.apple.com/kr/app/%ED%95%B4%ED%94%BC%ED%94%BD/id6784588173?itscg=30200&itsct=apps_box_link&mttnsubad=6784588173",
+    googlePlayUrl:
+      "https://play.google.com/store/apps/details?id=com.chamyworks.happypick",
     isPublic: true,
     policy: {
       title: "해피픽 개인정보처리방침",

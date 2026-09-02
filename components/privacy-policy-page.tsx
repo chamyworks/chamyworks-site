@@ -6,6 +6,12 @@ type PrivacyPolicyPageProps = {
   app: ChamyworksApp;
   language: "ko" | "en";
   policy: PrivacyPolicy;
+  basePath?: string;
+  collection?: {
+    href: string;
+    label: string;
+  } | null;
+  showAppsMenu?: boolean;
 };
 
 function PolicyParagraph({
@@ -39,17 +45,24 @@ export function PrivacyPolicyPage({
   app,
   language,
   policy,
+  basePath = `/apps/${app.slug}`,
+  collection = { href: "/apps/", label: "Apps" },
+  showAppsMenu = true,
 }: PrivacyPolicyPageProps) {
   const isEnglish = language === "en";
   const alternateHref = isEnglish
-    ? `/apps/${app.slug}/privacy`
-    : `/apps/${app.slug}/privacy/en`;
+    ? `${basePath}/privacy`
+    : `${basePath}/privacy/en`;
   const hasAlternatePolicy = Boolean(app.policyEn);
 
   return (
     <main className="min-h-screen px-5 pb-7 text-warm-ink sm:px-10 sm:pb-11 dark:text-[#f8efe4]">
       <div className="mx-auto max-w-6xl">
-        <SubpageHeader active="apps" language={language} />
+        <SubpageHeader
+          active={showAppsMenu ? "apps" : undefined}
+          language={language}
+          showAppsMenu={showAppsMenu}
+        />
       </div>
 
       <article className="mx-auto max-w-3xl">
@@ -60,13 +73,17 @@ export function PrivacyPolicyPage({
           <Link href="/" className="transition hover:text-warm-ink dark:hover:text-[#f8efe4]">
             Chamyworks
           </Link>
-          <span>/</span>
-          <Link
-            href="/apps/"
-            className="transition hover:text-warm-ink dark:hover:text-[#f8efe4]"
-          >
-            Apps
-          </Link>
+          {collection ? (
+            <>
+              <span>/</span>
+              <Link
+                href={collection.href}
+                className="transition hover:text-warm-ink dark:hover:text-[#f8efe4]"
+              >
+                {collection.label}
+              </Link>
+            </>
+          ) : null}
           <span>/</span>
           <span>{isEnglish ? app.name : app.displayName}</span>
           <span>/</span>
@@ -74,7 +91,7 @@ export function PrivacyPolicyPage({
         </nav>
 
         <header className="mb-8 mt-7 border-b border-warm-muted/16 pb-7 sm:mb-10 sm:mt-0 sm:pb-8 dark:border-[#bda995]/18">
-          <h1 className="text-3xl font-semibold leading-tight tracking-normal sm:text-4xl">
+          <h1 className="break-keep text-[1.65rem] font-semibold leading-tight tracking-normal sm:text-4xl">
             <span className="block">{policy.title}</span>
             {!isEnglish && policy.titleEn ? (
               <span className="mt-2 block text-lg font-medium text-warm-muted sm:text-xl dark:text-[#cdbdac]">
@@ -126,6 +143,32 @@ export function PrivacyPolicyPage({
                       );
                     }
 
+                    if (block.type === "subheading") {
+                      return (
+                        <h3
+                          key={`${section.title}-subheading-${index}`}
+                          className="pt-2 text-base font-semibold text-warm-ink sm:text-lg dark:text-[#f8efe4]"
+                        >
+                          {block.text}
+                        </h3>
+                      );
+                    }
+
+                    if (block.type === "link") {
+                      return (
+                        <p key={`${section.title}-link-${index}`}>
+                          <a
+                            href={block.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="break-words text-warm-ink underline decoration-warm-muted/30 underline-offset-4 transition hover:decoration-warm-ink dark:text-[#f8efe4] dark:decoration-[#bda995]/40 dark:hover:decoration-[#f8efe4]"
+                          >
+                            {block.label}
+                          </a>
+                        </p>
+                      );
+                    }
+
                     return (
                       <PolicyParagraph
                         key={`${section.title}-paragraph-${index}`}
@@ -155,7 +198,7 @@ export function PrivacyPolicyPage({
         {app.isPublic ? (
           <footer className="mt-10 border-t border-warm-muted/14 pt-5 text-xs text-warm-muted/80 dark:border-[#bda995]/16 dark:text-[#cdbdac]/85">
             <Link
-              href={`/apps/${app.slug}`}
+              href={basePath}
               className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4]"
             >
               {isEnglish

@@ -2,7 +2,7 @@ import type { PrivacyPolicy } from "@/content/apps";
 
 export const daengPickPolicyEn: PrivacyPolicy = {
   title: "Daeng Pick Privacy Policy",
-  updatedAt: "August 4, 2026",
+  updatedAt: "September 4, 2026",
   updatedLabel: "Last updated",
   description:
     "Daeng Pick can be used without creating an account or signing in. Photo editing and most data processing take place locally on your device.",
@@ -30,7 +30,8 @@ export const daengPickPolicyEn: PrivacyPolicy = {
             "Whether you have completed the first-use guide",
             "Your selected attention sound",
             "Your most recently selected frame",
-            "Whether certain feature tips have been shown",
+            "Whether you have acknowledged certain feature tips",
+            "Information needed to verify and restore purchase entitlements and prevent duplicate transaction processing (see Section 7)",
           ],
         },
         {
@@ -63,30 +64,9 @@ export const daengPickPolicyEn: PrivacyPolicy = {
     },
     {
       title: "3. Photo Library Permission",
-      paragraphs: [],
-      blocks: [
-        {
-          type: "paragraph",
-          text: "The App may request access to Photos for the following purposes:",
-        },
-        { type: "paragraph", text: "Importing a photo:" },
-        {
-          type: "list",
-          items: ["Importing an existing photo selected by you"],
-        },
-        { type: "paragraph", text: "Saving a photo:" },
-        {
-          type: "list",
-          items: ["Saving a finished photo to Photos"],
-        },
-        {
-          type: "paragraph",
-          text: "The App uses photos you select for editing. It does not collect or upload your entire photo library to the Developer\u2019s servers.",
-        },
-        {
-          type: "paragraph",
-          text: "You can change photo access permissions at any time in your device settings.",
-        },
+      paragraphs: [
+        "When importing photos, the App uses the iOS system photo picker and uses only the photos you select for editing. It does not request access to your entire photo library in advance as part of this process.",
+        "When saving a finished photo, the App requests permission to add photos to Photos. This permission does not allow the App to read your entire existing photo library. If you do not grant permission, the App will not save the photo to Photos. You can change this permission in your device settings.",
       ],
     },
     {
@@ -95,7 +75,7 @@ export const daengPickPolicyEn: PrivacyPolicy = {
         "Photos you take or select are edited locally on your device.",
         "Finished photos are newly generated JPEG images and are saved to Photos only when you choose to save them.",
         "The App does not intentionally copy the original photo\u2019s location data (GPS) or camera metadata (EXIF) into the finished image, and it does not transmit such information to the Developer\u2019s servers.",
-        "Temporary image files may be created in the device cache during burst photography, editing, and sharing. These files are deleted after the related operation is completed. If an operation does not finish normally, the files may be cleaned up the next time the App is launched.",
+        "Temporary image copies may be created in the App's private storage when taking, importing, editing, or sharing photos. The App cleans up these copies when they are no longer needed, such as when editing is canceled or saving is completed. Copies needed to retry a failed save are retained. If copies remain after an unexpected termination or a failed deletion, the App attempts to clean them up the next time it is launched. This process does not delete your original photos in Photos.",
         "Photos saved to Photos are not automatically deleted when you uninstall the App.",
       ],
     },
@@ -118,13 +98,18 @@ export const daengPickPolicyEn: PrivacyPolicy = {
         {
           type: "list",
           items: [
-            "Your email address",
+            "Your email address and the name displayed in the email, if any",
             "The subject and contents of your inquiry",
             "Files you choose to attach",
             "App version and build number",
             "Operating system and version",
+            "Device manufacturer and model",
             "App language",
           ],
+        },
+        {
+          type: "paragraph",
+          text: "Selecting Contact Support opens an email draft prefilled with the app version and build number, operating system and version, device manufacturer and model, and app language. You can review or edit the contents. The email is sent to the Developer only if you choose to send it in your email app. Photos, unique device identifiers, and location information are not automatically attached to the draft.",
         },
         {
           type: "paragraph",
@@ -165,6 +150,11 @@ export const daengPickPolicyEn: PrivacyPolicy = {
           type: "paragraph",
           text: "When you choose to use sharing or contact support, information may be processed by the app, service, or email provider you select.",
         },
+        { type: "subheading", text: "In-App Purchases" },
+        {
+          type: "paragraph",
+          text: "Apple App Store processes payments. The Developer does not directly collect or store payment card information or Apple account credentials. To verify and restore purchase entitlements and prevent duplicate transaction processing, the App stores product identifiers, transaction identifiers, verification timestamps, and a limited list of already-processed transaction identifiers on your device. This information is not sent to the Developer's servers. Necessary operations, including purchases and restorations, are handled through Apple StoreKit.",
+        },
       ],
     },
     {
@@ -173,6 +163,8 @@ export const daengPickPolicyEn: PrivacyPolicy = {
         "App settings are stored locally on your device.",
         "Uninstalling the App deletes settings and temporary data stored in the App\u2019s private storage.",
         "Finished photos saved to Photos remain in your photo library until you delete them yourself.",
+        "Purchase verification data stored in the App is separate from the purchase history managed by Apple. Uninstalling the App does not delete the purchase history managed by Apple. Apple's policies govern the handling of that information.",
+        "Information related to an inquiry is retained only as long as necessary to handle the inquiry and review related correspondence, and is deleted within one year from the date the inquiry is received, unless a longer retention period is required by applicable law.",
         "To request deletion of information submitted through a support inquiry, contact help@chamyworks.com.",
       ],
     },
@@ -196,8 +188,6 @@ export const daengPickPolicyEn: PrivacyPolicy = {
         "Service: Daeng Pick",
         "Developer: Chamyworks",
         "Email: help@chamyworks.com",
-        "Privacy Policy:",
-        "https://chamyworks.com/apps/daengpick/privacy/en",
       ],
     },
   ],

@@ -324,11 +324,12 @@
 - 동의 후 운영 Happy Pick `page_view`와 App Store `store_link_click`이 GA4 실시간 보고서에 각각 1회 수신되는 것을 확인했습니다.
 - 철회 후 같은 App Store 링크를 다시 눌러도 `store_link_click`이 1회에서 증가하지 않았습니다.
 - 재동의한 Happy Pick 조회로 `page_view`가 2회가 된 뒤 `/privacy`로 이동해도 정책 페이지 제목이 나타나지 않고 `page_view`가 2회로 유지되어 정책 페이지 제외를 확인했습니다.
+- commit/push 후 운영 재검증에서 Happy Pick 조회가 추가 수신되고 Google Play 클릭으로 `store_link_click`이 1회에서 2회로 증가했습니다. 철회 후 같은 링크를 다시 눌러도 2회로 유지됐습니다.
 - 검증 종료 시 운영자 브라우저의 GA4 동의를 다시 철회했습니다.
 - 모바일, 탭 간 변경 및 실제 60일 만료는 요청에 따라 후속 검증으로 남겼습니다.
 
 #### 반영 상태
 
 - 로컬: 완료
-- 커밋·push: 미실행
+- 커밋·push: `3fad19c` (`origin/main`)
 - 운영 배포: Cloudflare Version ID `b5ab9bb6-4ace-4971-8eeb-6b33801b22dc`

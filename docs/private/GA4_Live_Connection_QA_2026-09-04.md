@@ -5,12 +5,13 @@
 ## 운영 활성화 및 최소 검증
 
 - 운영 후보: HEAD `9f8d02b` + 승인된 웹 정책·GA4·공통 푸터 파일의 분리 빌드. Cloudflare Worker `chamyworks-site`, Version ID `b5ab9bb6-4ace-4971-8eeb-6b33801b22dc`.
-- 정책 공개와 GA4 활성화 플래그를 함께 활성화했으며 정책 본문은 수정하지 않았습니다. commit/push는 진행하지 않았습니다.
+- 정책 공개와 GA4 활성화 플래그를 함께 활성화했으며 정책 본문은 수정하지 않았습니다. 기능 커밋 `3fad19c`를 `origin/main`에 push했습니다.
 - 운영 `/privacy`, `/apps/happypick`, `/apps/happypick/privacy`, `/apps/happypick/privacy/en`이 HTTPS 200을 반환했습니다.
 - 최초 동의 화면에서 Google 태그 0개와 GA4 실시간 사용자 0명을 확인했습니다.
 - 동의 후 Happy Pick `page_view` 1회와 App Store `store_link_click` 1회가 GA4 실시간 보고서에 수신됐습니다.
 - 철회 후 같은 App Store 링크를 다시 눌러도 `store_link_click`은 1회로 유지됐습니다.
 - 정책 제외 검증을 위해 다시 동의해 Happy Pick `page_view`가 2회가 된 뒤 `/privacy`에 진입했습니다. GA4의 페이지 제목은 Happy Pick만 표시되고 `page_view`는 2회로 유지됐습니다.
+- push 후 운영 재검증에서는 Happy Pick 조회가 추가 수신됐고 Google Play 클릭으로 `store_link_click`이 1회에서 2회로 증가했습니다. 철회 후 같은 Google Play 링크를 다시 눌러도 2회로 유지됐습니다.
 - 검증 종료 시 운영자 브라우저의 GA4 동의를 철회했습니다.
 - 모바일, 탭 간 동의 변경 및 실제 60일 만료는 이번 공개의 선행 조건에서 제외되어 후속 검증으로 남겼습니다.
 - production build 전 로직 테스트 39/39, lint, TypeScript, diff check, Next/OpenNext 분리 build 및 Wrangler dry-run이 통과했습니다.

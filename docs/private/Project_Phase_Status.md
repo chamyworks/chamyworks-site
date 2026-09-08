@@ -4,7 +4,7 @@
 
 ## 최신 개발 결과 — 웹사이트 통계/정책/푸터
 
-- 운영 활성화 완료: 승인된 웹사이트 개인정보처리방침과 동의 기반 GA4를 Cloudflare Version ID `b5ab9bb6-4ace-4971-8eeb-6b33801b22dc`로 배포했습니다. 정책 및 관련 URL 4개 HTTP 200, 동의 전 Google 태그 미삽입, 동의 후 `page_view`/`store_link_click` 실시간 수신, 철회 후 스토어 이벤트 증가 없음, `/privacy` 조회 제외를 운영에서 확인했습니다. 검증 종료 시 운영자 브라우저 동의를 철회했습니다. 테스트 39개/lint/타입/분리 production build/diff check 통과. commit/push는 미실행이며 모바일·탭 간 변경·실제 60일 만료는 후속 검증입니다.
+- 운영 활성화 완료: 승인된 웹사이트 개인정보처리방침과 동의 기반 GA4를 Cloudflare Version ID `b5ab9bb6-4ace-4971-8eeb-6b33801b22dc`로 배포했습니다. 정책 및 관련 URL 4개 HTTP 200, 동의 전 Google 태그 미삽입, 동의 후 `page_view`/`store_link_click` 실시간 수신, 철회 후 스토어 이벤트 증가 없음, `/privacy` 조회 제외를 운영에서 확인했습니다. commit `3fad19c`를 `origin/main`에 push한 뒤 Happy Pick 조회와 Google Play 클릭도 재수신하고 철회 후 증가 없음을 다시 확인했습니다. 검증 종료 시 운영자 브라우저 동의를 철회했습니다. 테스트 39개/lint/타입/분리 production/OpenNext build/diff check 통과. 모바일·탭 간 변경·실제 60일 만료는 후속 검증입니다.
 
 - 최신 재검증: 사용자 승인 후 3개 보정 완료. QA `09283ee8-5751-4f72-99a8-cf1b22733a66`에서 재동의 조회 1회씩, 스토어 클릭 수신/금액 필드 없음, 철회 순간 진단 요청 미재현, 정책 제외 확인. GA4 기본 금액 설정 안함 저장/재조회 확인. 테스트 38개/lint/타입/분리 production build/diff check 통과. QA 다시 닫음(주요 경로 503). 운영 활성화/배포/commit/push 별도 승인 대기. 실제 SDK 미검증 매트릭스는 [보고서](GA4_Live_Connection_QA_2026-09-04.md) 참조. 아래는 이전 후보 이력입니다.
 

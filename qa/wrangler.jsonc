@@ -1,0 +1,19 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "chamyworks-site-ga4-qa",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-04",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "../.open-next/qa/assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "routes": [{ "pattern": "qa-analytics.chamyworks.com", "custom_domain": true }],
+  "vars": { "QA_HOST": "qa-analytics.chamyworks.com" },
+  "secrets": { "required": ["QA_PASSWORD", "QA_SESSION_SECRET", "QA_ENDS_AT"] },
+  "ratelimits": [{ "name": "LOGIN_LIMITER", "namespace_id": "2026090401", "simple": { "limit": 5, "period": 60 } }],
+  "observability": { "enabled": false }
+}

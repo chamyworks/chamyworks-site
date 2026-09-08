@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HappyPickPreview } from "@/components/happypick-preview";
 import { SubpageHeader } from "@/components/subpage-header";
+import { SiteFooter } from "@/components/site-footer";
 import { chamyworksApps, getChamyworksApp } from "@/content/apps";
 
 type AppPageProps = {
@@ -148,21 +149,7 @@ export default async function AppPage({ params }: AppPageProps) {
           slides={happyPick.screenshots}
         />
 
-        <footer className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-center gap-x-2 gap-y-1 border-t border-warm-muted/10 pb-5 pt-4 text-center text-xs text-warm-muted/85 sm:pb-6 dark:border-[#bda995]/14 dark:text-[#d9cabb]/85">
-          <a
-            href={`mailto:${app.policy.contact.email}`}
-            className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4] dark:hover:decoration-[#f8efe4]"
-          >
-            {app.policy.contact.email}
-          </a>
-          <span aria-hidden="true">·</span>
-          <Link
-            href={`/apps/${app.slug}/privacy`}
-            className="font-medium underline decoration-warm-muted/25 underline-offset-4 transition hover:text-warm-ink hover:decoration-warm-ink dark:decoration-[#bda995]/35 dark:hover:text-[#f8efe4] dark:hover:decoration-[#f8efe4]"
-          >
-            개인정보처리방침
-          </Link>
-        </footer>
+        <SiteFooter product={{ name: app.name, kind: "app", contactHref: `mailto:${app.policy.contact.email}`, privacyHref: `/apps/${app.slug}/privacy` }} />
       </div>
     </main>
   );

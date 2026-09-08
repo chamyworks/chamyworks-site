@@ -134,6 +134,9 @@ export function HappyPickPreview({
                 <div className="mx-auto grid w-full max-w-[17rem] grid-cols-2 items-center justify-items-center gap-2 lg:hidden">
                   <a
                     href={appStoreUrl}
+                    data-analytics-product="happypick"
+                    data-analytics-store="app_store"
+                    data-analytics-placement="mobile_badge"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="App Store에서 Happy Pick 다운로드"
@@ -152,6 +155,9 @@ export function HappyPickPreview({
                   {googlePlayUrl ? (
                     <a
                       href={googlePlayUrl}
+                      data-analytics-product="happypick"
+                      data-analytics-store="google_play"
+                      data-analytics-placement="mobile_badge"
                       target="_blank"
                       rel="noreferrer"
                       aria-label="Google Play에서 Happy Pick 다운로드"
@@ -173,6 +179,9 @@ export function HappyPickPreview({
                   <div className="flex min-w-[8.125rem] flex-col items-center">
                     <a
                       href={appStoreUrl}
+                      data-analytics-product="happypick"
+                      data-analytics-store="app_store"
+                      data-analytics-placement="desktop_badge"
                       target="_blank"
                       rel="noreferrer"
                       aria-label="App Store에서 Happy Pick 다운로드"
@@ -189,6 +198,9 @@ export function HappyPickPreview({
                     </a>
                     <a
                       href={appStoreUrl}
+                      data-analytics-product="happypick"
+                      data-analytics-store="app_store"
+                      data-analytics-placement="desktop_qr"
                       target="_blank"
                       rel="noreferrer"
                       aria-label="App Store에서 Happy Pick 다운로드"
@@ -212,6 +224,9 @@ export function HappyPickPreview({
                     <div className="flex min-w-[8.125rem] flex-col items-center">
                       <a
                         href={googlePlayUrl}
+                        data-analytics-product="happypick"
+                        data-analytics-store="google_play"
+                        data-analytics-placement="desktop_badge"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Google Play에서 Happy Pick 다운로드"
@@ -228,6 +243,9 @@ export function HappyPickPreview({
                       </a>
                       <a
                         href={googlePlayUrl}
+                        data-analytics-product="happypick"
+                        data-analytics-store="google_play"
+                        data-analytics-placement="desktop_qr"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Google Play에서 Happy Pick 다운로드"

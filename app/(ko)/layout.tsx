@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { SiteAnalytics } from "@/components/site-analytics";
 import "../globals.css";
 
 const siteDescription =
@@ -49,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>{children}<SiteAnalytics language="ko" /></body>
     </html>
   );
 }

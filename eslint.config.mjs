@@ -5,6 +5,7 @@ export default defineConfig([
   ...nextVitals,
   globalIgnores([
     ".next/**",
+    ".next-analytics-preview/**",
     ".open-next/**",
     ".wrangler/**",
     "design-mockups/**",

@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const isDevelopment = process.env.NODE_ENV === "development";
+const analyticsLive = process.env.NEXT_PUBLIC_SITE_ANALYTICS_MODE === "live";
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -11,8 +12,8 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   "style-src 'self' 'unsafe-inline'",
-  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} https://static.cloudflareinsights.com`,
-  `connect-src 'self' https://cloudflareinsights.com${isDevelopment ? " ws: wss:" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} https://static.cloudflareinsights.com${analyticsLive ? " https://www.googletagmanager.com" : ""}`,
+  `connect-src 'self' https://cloudflareinsights.com${isDevelopment ? " ws: wss:" : ""}${analyticsLive ? " https://www.google-analytics.com https://region1.google-analytics.com" : ""}`,
 ].join("; ");
 
 const securityHeaders = [
@@ -43,6 +44,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // A sibling directory survives cleanup of .next during the default build.
+  distDir: process.env.NEXT_PUBLIC_SITE_ANALYTICS_MODE === "preview" ? ".next-analytics-preview" : ".next",
   poweredByHeader: false,
   async headers() {
     return [
